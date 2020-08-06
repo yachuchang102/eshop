@@ -88,6 +88,18 @@ export default {
   },
   methods: {
     signin () {
+      const api = `${process.env.VUE_APP_APIPATH}auth/login`
+      this.$http.post(api, this.user).then((response) => {
+        const { token } = response.data
+        const { expired } = response.data
+        document.cookie = `loginName=${token}; expires=${new Date(expired * 1000)}; path=/`
+        this.$router.push('admin/products')
+      }).catch((error) => {
+        console.log(error)
+      })
+    },
+    signout () {
+      document.cookie = 'loginName=;expires=;'
     },
     getData () {
     }

@@ -7,7 +7,7 @@
       <router-link to="/about">關於我們</router-link> |
       <router-link to="/pay">結帳</router-link> |
       <router-link to="/paysuccess">結帳完成</router-link> |
-      <router-link to="/admin/products">後台</router-link> |
+      <router-link to="/admin">後台</router-link> |
     </div>
     <router-view></router-view>
   </div>
