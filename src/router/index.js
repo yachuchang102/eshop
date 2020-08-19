@@ -69,6 +69,14 @@ const routes = [
       {
         path: 'coupons',
         component: () => import('../views/dashboard/Coupons.vue')
+      },
+      {
+        path: 'customercheckout/:orderId',
+        component: () => import('../views/dashboard/CustomerCheckout.vue')
+      },
+      {
+        path: 'customerOrder',
+        component: () => import('../views/dashboard/CustomerOrder.vue')
       }
     ]
   }
