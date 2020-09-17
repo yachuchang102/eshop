@@ -14,8 +14,8 @@
     </div>
 </template>
 
-<style>
-    html,
+<style scoped>
+html,
 body {
   height: 100vh;
   text-align:center;

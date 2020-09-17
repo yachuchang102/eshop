@@ -72,7 +72,7 @@ export default {
       this.isLoading = true
       // 清除cookie的方式，讓它為空
       document.cookie = 'loginName=; expires=; path=/'
-      this.$router.push('/')
+      this.$router.push('/index')
       this.isLoading = false
     }
   }

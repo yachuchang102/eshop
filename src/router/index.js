@@ -7,13 +7,18 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '*',
-    redirect: '/'
+    redirect: '/index'
   },
   {
     path: '/',
     name: 'Home',
     component: Home,
     children: [
+      {
+        path: '/index',
+        name: 'index',
+        component: () => import('../views/Front.vue')
+      },
       {
         path: '/about',
         name: 'About',
@@ -35,7 +40,7 @@ const routes = [
         component: () => import('../views/Paybill.vue')
       },
       {
-        path: '/paysuccess',
+        path: '/customercheckout/:id',
         name: 'Paysuccess',
         component: () => import('../views/Paysuccess.vue')
       },
