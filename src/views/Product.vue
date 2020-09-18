@@ -47,8 +47,8 @@
         <hr>
         <div class="row">
           <div class="col-md-2 card-margin card-size"  v-for="item in filterProduct" :key="item.id">
-            <div class="card rounded-0 border-0">
-              <img class="card-img-top rounded-0" alt="">
+            <div class="card rounded-0 border-0" @click="goProduct(item.id)">
+              <img :src="item.imageUrl" class="card-img-top rounded-0" alt="">
               <div class="card-body">
                 <h5 class="card-title like-font font-weight-bold">{{item.title}}</h5>
                 <p class="card-text text-secondary"></p>
@@ -100,6 +100,10 @@ export default {
       })
   },
   methods: {
+    goProduct (id) {
+      this.$router.push(`/product/${id}`)
+      window.location.reload()
+    },
     getCart () {
       const vm = this
       const api = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`

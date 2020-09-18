@@ -1,21 +1,32 @@
 <template>
-    <div>
+<div>
+  <loading :active.sync="isLoading"></loading>
+  <div  v-if="cartTotal!==0">
         <div class="container">
         <ul class="step-list">
-        <li class="col-md-12 col-lg-3 pt-2 mt-3 dot-none"
-          :class="{'bg-success , text-white active': step === 1}">
-          <span>Step:1</span>
-          <p>確認訂單內容</p>
+        <li class="col-md-12 col-lg-3 pt-2 mt-3 dot-none">
+          <div class="d-flex justify-content-center">
+          <div class="h-circle"
+          :class="{'bg-primary active': step === 1}"
+          >Step:1</div>
+          </div>
+          <p class="mt-2">確認訂單內容</p>
         </li>
-        <li class="col-md-12 col-lg-3 pt-2 mt-3 dot-none"
-        :class="{'bg-success , text-white active': step === 2}">
-          <span>Step:2</span>
-          <p>填寫購買資料</p>
+         <li class="col-md-12 col-lg-3 pt-2 mt-3 dot-none">
+          <div class="d-flex justify-content-center">
+          <div class="h-circle"
+          :class="{'bg-primary active': step === 2}"
+          >Step:2</div>
+          </div>
+          <p class="mt-2">填寫訂單資料</p>
         </li>
-        <li class="col-md-12 col-lg-3 pt-2 mt-3 dot-none"
-        :class="{'bg-success , text-white active': step === 3}">
-          <span>Step:3</span>
-          <p>付款/完成訂單</p>
+         <li class="col-md-12 col-lg-3 pt-2 mt-3 dot-none">
+          <div class="d-flex justify-content-center">
+          <div class="h-circle"
+          :class="{'bg-primary active': step === 3}"
+          >Step:3</div>
+          </div>
+          <p class="mt-2">付款/完成訂單</p>
         </li>
       </ul>
       </div>
@@ -145,7 +156,7 @@
           <hr>
            <div class="row justify-content-between" v-if="step === 1">
              <div class="col-md-3">
-               <router-link to="/products" class="btn btn-danger btn-block step-btn">
+               <router-link to="/products" class="btn btn-secondary btn-block step-btn">
                  <i class="fas fa-arrow-left"></i>繼續選購</router-link>
              </div>
              <div class="col-md-3" v-if="orderTotal !== 0">
@@ -287,21 +298,32 @@
               rows="3"
             />
           </div>
-          <div class="text-right">
-            <button
+             <hr>
+           <div class="row justify-content-between">
+             <div class="col-md-3">
+               <router-link to="/products" class="btn btn-secondary btn-block step-btn">
+                 <i class="fas fa-arrow-left"></i>繼續選購</router-link>
+             </div>
+             <div class="col-md-3">
+         <button
               type="submit"
-              class="btn btn-primary"
+              class="btn btn-primary btn-block"
               :disabled="invalid"
               @click="createOrder"
             >
               送出表單
             </button>
+             </div>
           </div>
         </form>
       </validation-observer>
 </div>
 <!--step2end-->
-    </div>
+</div>
+<div v-else>
+  <h2>您尚未加入任何商品</h2>
+</div>
+</div>
 </template>
 
 <script>
@@ -482,5 +504,11 @@ export default {
 }
 .step-btn {
  margin-bottom: 15px
+}
+.h-circle{
+  padding-top:20px;
+  border-radius: 50%;
+  width:60px;
+  height:60px
 }
 </style>

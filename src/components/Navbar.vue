@@ -12,7 +12,7 @@
           <a href="#" class="navbar-icon-badge navbar-icon-size mb-0 text-secondary" data-toggle="dropdown">
             <i class="fas fa-heart fa-lg text-danger" v-if="isFavShow"></i>
             <i class="far fa-heart fa-lg" v-else></i>
-            <span class="badge badge-danger rounded-circle h-number" v-if="isFavShow">{{ favTotal }}</span>
+            <span class="badge badge-danger badge-pill h-number" v-if="isFavShow">{{ favTotal }}</span>
           </a>
           <div class="dropdown-menu favorite-dropdown-menu-right dropdown-menu-right p-3 position-absolute" style="min-width: 280px" data-offset="400">
             <h6>最愛商品列表</h6>
@@ -35,7 +35,7 @@
           <a href="#" class="navbar-icon-badge navbar-icon-size mb-0 text-secondary" data-toggle="dropdown" data-flip="false">
             <i class="fas fa-shopping-bag fa-lg text-danger" v-if="isCartShow"></i>
             <i class="fas fa-shopping-bag fa-lg" v-else></i>
-            <span class="badge badge-danger rounded-circle h-number" v-if="isCartShow">{{countTotal}}</span>
+            <span class="badge badge-danger badge-pill h-number" v-if="isCartShow">{{countTotal}}</span>
           </a>
           <div class="dropdown-menu dropdown-menu-right position-absolute p-3" style="min-width: 300px" data-offset="400">
             <h6>已選擇商品</h6>
@@ -54,9 +54,11 @@
                 </tr>
               </tbody>
             </table>
-            <router-link class="btn btn-primary btn-block" to="/pay">
-              <i class="fa fa-cart-plus" aria-hidden="true"></i> 結帳去
-            </router-link>
+           <div v-if="isCartShow">
+               <router-link to="/pay" class="btn btn-primary btn-block" style="height:50px;line-height:35px">
+               <span><i class="fa fa-cart-plus"></i>結帳去</span>
+                 </router-link>
+             </div>
           </div>
         </li>
     <router-link to="/admin"><i class="fas fa-user"></i></router-link>
