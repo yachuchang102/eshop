@@ -3,7 +3,7 @@
   <loading :active.sync="isLoading"></loading>
   <header id="header" class="navbar-fixed-top">
   <!--  Brand Logo  -->
-  <router-link to="/index" class="nav-brand">
+  <router-link to="/" class="nav-brand">
     <img id="header-img" src="../assets/logo.png" alt="Sophie Skincare">
   </router-link>
   <!--  Menus  -->
